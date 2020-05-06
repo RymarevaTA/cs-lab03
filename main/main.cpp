@@ -77,7 +77,6 @@ int main() {
     cerr << "Enter numbers: ";
     const auto numbers = input_numbers(number_count);
 
-
     size_t bin_count;
     cerr << "Enter column count: ";
     cin >> bin_count;
@@ -86,7 +85,7 @@ int main() {
     const auto bins = make_histogram(numbers, bin_count);
 
     // Вывод данных
-    show_histogram_svg(bins);
-
+    show_histogram_svg(bins, bin_count);
+   // show_interval_svg (interval);
     return 0;
 }
