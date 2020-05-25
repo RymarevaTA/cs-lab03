@@ -6,11 +6,10 @@
 1590417554 c:\users\lehar\desktop\лаба4\cs-lab03\main\histogram.h
 	<vector>
 
-1590417749 source:c:\users\lehar\desktop\лаба4\cs-lab03\main\svg.cpp
-	"svg.h"
-	<vector>
-	<string>
+1590421563 source:c:\users\lehar\desktop\лаба4\cs-lab03\main\svg.cpp
 	<iostream>
+	<vector>
+	"svg.h"
 
 1590420882 c:\users\lehar\desktop\лаба4\cs-lab03\main\svg.h
 	<vector>
