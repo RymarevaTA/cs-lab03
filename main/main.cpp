@@ -3,11 +3,15 @@
 #include <string>
 #include "histogram.h"
 #include "svg.h"
+#include <windows.h>
+#include <cstdio>
 using namespace std;
 
-vector<double> input_numbers(const size_t count) {
+vector<double> input_numbers(const size_t count)
+{
     vector<double> result(count);
-    for (size_t i = 0; i < count; i++) {
+    for (size_t i = 0; i < count; i++)
+    {
         cin >> result[i];
     }
 
@@ -16,14 +20,17 @@ vector<double> input_numbers(const size_t count) {
 
 
 
-vector<size_t> make_histogram(const vector<double>& numbers, const size_t count) {
+vector<size_t> make_histogram(const vector<double>& numbers, const size_t count)
+{
     vector<size_t> result(count);
     double min;
     double max;
     find_minmax(numbers, min, max);
-    for (double number : numbers) {
+    for (double number : numbers)
+    {
         size_t bin = (size_t)((number - min) / (max - min) * count);
-        if (bin == count) {
+        if (bin == count)
+        {
             bin--;
         }
         result[bin]++;
@@ -32,34 +39,42 @@ vector<size_t> make_histogram(const vector<double>& numbers, const size_t count)
     return result;
 }
 
-void show_histogram_text(vector<size_t> bins) {
+void show_histogram_text(vector<size_t> bins)
+{
     const size_t SCREEN_WIDTH = 80;
     const size_t MAX_ASTERISK = SCREEN_WIDTH - 4 - 1;
 
     size_t max_count = 0;
-    for (size_t count : bins) {
-        if (count > max_count) {
+    for (size_t count : bins)
+    {
+        if (count > max_count)
+        {
             max_count = count;
         }
     }
     const bool scaling_needed = max_count > MAX_ASTERISK;
 
-    for (size_t bin : bins) {
-        if (bin < 100) {
+    for (size_t bin : bins)
+    {
+        if (bin < 100)
+        {
             cout << ' ';
         }
-        if (bin < 10) {
+        if (bin < 10)
+        {
             cout << ' ';
         }
         cout << bin << "|";
 
         size_t height = bin;
-        if (scaling_needed) {
+        if (scaling_needed)
+        {
             const double scaling_factor = (double)MAX_ASTERISK / max_count;
             height = (size_t)(bin * scaling_factor);
         }
 
-        for (size_t i = 0; i < height; i++) {
+        for (size_t i = 0; i < height; i++)
+        {
             cout << '*';
         }
         cout << '\n';
@@ -68,8 +83,25 @@ void show_histogram_text(vector<size_t> bins) {
 }
 
 
-int main() {
-    // ¬вод данных
+int main()
+{
+    DWORD WINAPI GetVersion();
+    DWORD mask = 0x0000ffff;
+    DWORD mask_2 = 0x000000ff;
+    DWORD info = GetVersion();
+    DWORD platform = info >> 16;
+    DWORD version = info & mask;
+    DWORD version_major = version & mask_2;
+    DWORD version_minor = version >>8;
+    if ((version & 0x80000000) == 0) {
+            printf("equal to zero\n");
+        }
+
+        DWORD build = platform;
+
+        printf("Windows v%d.%d (build %d)", version_major, version_minor, build);
+
+    return 0;
     size_t number_count;
     cerr << "Enter number count: ";
     cin >> number_count;

@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1590518482 source:c:\users\lehar\desktop\лаба4\cs-lab03\main\histogram.cpp
+	<vector>
+	"histogram.h"
+
+1590518482 c:\users\lehar\desktop\лаба4\cs-lab03\main\histogram.h
+	<vector>
+
+1590520524 source:c:\users\lehar\desktop\лаба4\cs-lab03\main\svg.cpp
+	"svg.h"
+	<vector>
+	<string>
+	<iostream>
+
+1590518482 c:\users\lehar\desktop\лаба4\cs-lab03\main\svg.h
+	<vector>
+	<string>
+
+1590525688 source:c:\users\lehar\desktop\лаба4\cs-lab03\main\main.cpp
+	<iostream>
+	<vector>
+	<string>
+	"histogram.h"
+	"svg.h"
+	<windows.h>
+	<cstdio>
+
