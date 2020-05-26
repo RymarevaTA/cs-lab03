@@ -2,7 +2,7 @@
 #include <vector>
 #include "histogram.h"
 #include "svg.h"
-#include <curl/curl.h>
+#include <curl/curl.h> //сторонн€€ библиотека
 using namespace std;
 
 
