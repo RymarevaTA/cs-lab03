@@ -14,9 +14,49 @@
 1590420882 c:\users\lehar\desktop\лаба4\cs-lab03\main\svg.h
 	<vector>
 
-1590434288 source:c:\users\lehar\desktop\лаба4\cs-lab03\main\main.cpp
+1590494184 source:c:\users\lehar\desktop\лаба4\cs-lab03\main\main.cpp
 	<iostream>
 	<vector>
 	"histogram.h"
 	"svg.h"
+	<curl/curl.h>
+
+1587991348 c:\users\lehar\desktop\лаба4\cs-lab03\main\curl\include\curl\curl.h
+	"curlver.h"
+	"system.h"
+	<stdio.h>
+	<limits.h>
+	<osreldate.h>
+	<sys/types.h>
+	<time.h>
+	<winsock2.h>
+	<ws2tcpip.h>
+	<sys/select.h>
+	<sys/socket.h>
+	<sys/time.h>
+	<support/SupportDefs.h>
+	"easy.h"
+	"multi.h"
+	"urlapi.h"
+	"typecheck-gcc.h"
+
+1588129392 c:\users\lehar\desktop\лаба4\cs-lab03\main\curl\include\curl\curlver.h
+
+1587548874 c:\users\lehar\desktop\лаба4\cs-lab03\main\curl\include\curl\system.h
+	<winsock2.h>
+	<windows.h>
+	<ws2tcpip.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<sys/poll.h>
+
+1587548874 c:\users\lehar\desktop\лаба4\cs-lab03\main\curl\include\curl\easy.h
+
+1587548874 c:\users\lehar\desktop\лаба4\cs-lab03\main\curl\include\curl\multi.h
+	"curl.h"
+
+1587548874 c:\users\lehar\desktop\лаба4\cs-lab03\main\curl\include\curl\urlapi.h
+	"curl.h"
+
+1587548874 c:\users\lehar\desktop\лаба4\cs-lab03\main\curl\include\curl\typecheck-gcc.h
 
