@@ -1,7 +1,10 @@
 #include "svg.h"
+#include "histogram.h"
 #include <vector>
 #include <string>
 #include <iostream>
+#include <windows.h>
+#include <cstdio>
 using namespace std;
 
 void svg_begin(double width, double height) {
@@ -27,8 +30,8 @@ void svg_rect(double x, double y, double width, double height, string stroke, st
 
 void show_histogram_svg(const vector<size_t>& bins) {
 const size_t MAX_ASTERISK=35;
-const auto IMAGE_WIDTH = 400;
-const auto IMAGE_HEIGHT = 300;
+const auto IMAGE_WIDTH = 550;
+const auto IMAGE_HEIGHT = 380;
 const auto TEXT_LEFT = 20;
 const auto TEXT_BASELINE = 20;
 const auto TEXT_WIDTH = 50;
@@ -37,8 +40,6 @@ const auto BLOCK_WIDTH = 10;
 double top = 0;
 svg_begin(IMAGE_WIDTH, IMAGE_HEIGHT);
 for (size_t bin : bins) {
-const double bin_width = BLOCK_WIDTH * bin;
-double top = 0;
 unsigned max_count=0;
 for (size_t bin : bins)
 {
@@ -56,10 +57,11 @@ height=bin;
 }
 height = BLOCK_WIDTH * height;
     svg_text(TEXT_LEFT, top + TEXT_BASELINE, to_string(bin));
-    svg_rect(TEXT_WIDTH, top, height, BIN_HEIGHT,"black","green");
+    svg_rect(TEXT_WIDTH, top, height, BIN_HEIGHT,"black","black");
 
     top += BIN_HEIGHT;
 }
+svg_text(TEXT_WIDTH, top + TEXT_BASELINE,make_info_text());
     svg_end();
 }
 }

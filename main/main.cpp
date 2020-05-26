@@ -85,23 +85,7 @@ void show_histogram_text(vector<size_t> bins)
 
 int main()
 {
-    DWORD WINAPI GetVersion();
-    DWORD mask = 0x0000ffff;
-    DWORD mask_2 = 0x000000ff;
-    DWORD info = GetVersion();
-    DWORD platform = info >> 16;
-    DWORD version = info & mask;
-    DWORD version_major = version & mask_2;
-    DWORD version_minor = version >>8;
-    if ((version & 0x80000000) == 0) {
-            printf("equal to zero\n");
-        }
 
-        DWORD build = platform;
-
-        printf("Windows v%d.%d (build %d)", version_major, version_minor, build);
-
-    return 0;
     size_t number_count;
     cerr << "Enter number count: ";
     cin >> number_count;
