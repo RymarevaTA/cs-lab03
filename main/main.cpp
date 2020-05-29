@@ -6,6 +6,7 @@
 #include <sstream>
 #include <string>
 using namespace std;
+
 vector<double> input_numbers(istream& in, size_t count)
 {
     vector<double> result(count);
@@ -15,6 +16,7 @@ vector<double> input_numbers(istream& in, size_t count)
     }
     return result;
 }
+
 Input read_input(istream& in, bool prompt)
 {
     Input data;
@@ -38,8 +40,15 @@ Input read_input(istream& in, bool prompt)
     }
     in >> data.bin_count;
 
+    if (prompt)
+    {
+        cerr << "Enter interval: ";
+    }
+    in >> data.interval;
+
     return data;
 }
+
 vector<size_t> make_histogram(const Input input)
 {
     double min, max;
@@ -57,6 +66,7 @@ vector<size_t> make_histogram(const Input input)
     }
     return bins;
 }
+
 size_t write_data(void* items, size_t item_size, size_t item_count, void* ctx)
 {
     size_t data_size = item_size * item_count;
@@ -64,6 +74,7 @@ size_t write_data(void* items, size_t item_size, size_t item_count, void* ctx)
     (*buffer).write(reinterpret_cast<const char*>(items), data_size);
     return data_size;
 }
+
 Input download(const string& address)
 {
     stringstream buffer;
@@ -97,6 +108,6 @@ int main(int argc, char* argv[])
     else
         input = read_input(cin, true);
     const auto bins=make_histogram(input);
-    show_histogram_svg(bins);
+    show_histogram_svg(bins, input.bin_count, input.interval);
     return 0;
 }
