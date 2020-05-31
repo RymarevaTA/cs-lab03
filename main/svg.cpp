@@ -1,7 +1,10 @@
 #include "svg.h"
+#include "histogram.h"
 #include <vector>
 #include <string>
 #include <iostream>
+#include <windows.h>
+#include <cstdio>
 using namespace std;
 
 void svg_begin(double width, double height)
@@ -31,9 +34,6 @@ void svg_rect(double x, double y, double width, double height, string stroke, st
 
 size_t calculation_star_factor (size_t MAX_WIDTH, size_t max_count)
 {
-    if (max_count==0){
-        return (0);
-    }
     size_t star_factor=MAX_WIDTH/max_count;
     return (star_factor);
 }
@@ -47,7 +47,7 @@ size_t calculation_interval_width (size_t star_factor, size_t interval)
 
 void show_histogram_svg(const vector<size_t>& bins, size_t bin_count, size_t interval)
 {
-    const auto IMAGE_WIDTH = 400;
+    const auto IMAGE_WIDTH = 550;
     const auto IMAGE_HEIGHT = 300;
     const auto TEXT_LEFT = 20;
     const auto TEXT_BASELINE = 20;
@@ -75,7 +75,7 @@ void show_histogram_svg(const vector<size_t>& bins, size_t bin_count, size_t int
         const double bin_width = star_factor * bin;
 
         svg_text(TEXT_LEFT, top + TEXT_BASELINE, to_string(bin));
-        svg_rect(TEXT_WIDTH, top, bin_width, BIN_HEIGHT,"black","black");
+        svg_rect(TEXT_WIDTH, top, bin_width, BIN_HEIGHT,"black","green");
 
         top += BIN_HEIGHT;
     }
@@ -94,6 +94,7 @@ void show_histogram_svg(const vector<size_t>& bins, size_t bin_count, size_t int
         svg_text(TEXT_WIDTH, otstup+50, "0");
         svg_text(TEXT_WIDTH+interval_width, otstup+50, to_string(interval));
         svg_text(TEXT_WIDTH+interval_count*interval_width, otstup+50, to_string(interval*interval_count));
-    }
-    svg_end ();
+}
+svg_text(TEXT_WIDTH,otstup+80,make_info_text());
+    svg_end();
 }

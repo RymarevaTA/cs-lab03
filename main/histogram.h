@@ -17,3 +17,5 @@ struct Input
 void find_minmax(vector<double> numbers, double& min, double& max);
 
 void show_histogram_text(vector<size_t> bins);
+
+string make_info_text();

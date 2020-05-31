@@ -1,25 +1,31 @@
 # depslib dependency file v1.0
-1590770804 source:c:\users\lehar\desktop\лаба4\cs-lab03\main\histogram.cpp
-	"histogram.h"
+146042888 <<<<<<< HEAD
 
-1590773837 c:\users\lehar\desktop\лаба4\cs-lab03\main\histogram.h
+1590956375 source:c:\users\lehar\desktop\лаба4\cs-lab03\main\histogram.cpp
+	"histogram.h"
+	<string>
+
+1590955485 c:\users\lehar\desktop\лаба4\cs-lab03\main\histogram.h
 	<iostream>
 	<vector>
 	<sstream>
 	<string>
 	<curl/curl.h>
 
-1590774379 source:c:\users\lehar\desktop\лаба4\cs-lab03\main\svg.cpp
+1590956839 source:c:\users\lehar\desktop\лаба4\cs-lab03\main\svg.cpp
 	"svg.h"
+	"histogram.h"
 	<vector>
 	<string>
 	<iostream>
+	<windows.h>
+	<cstdio>
 
-1590774363 c:\users\lehar\desktop\лаба4\cs-lab03\main\svg.h
+1590955485 c:\users\lehar\desktop\лаба4\cs-lab03\main\svg.h
 	<vector>
 	<string>
 
-1590774297 source:c:\users\lehar\desktop\лаба4\cs-lab03\main\main.cpp
+1590958314 source:c:\users\lehar\desktop\лаба4\cs-lab03\main\main.cpp
 	<iostream>
 	<vector>
 	"histogram.h"
@@ -27,6 +33,7 @@
 	<curl/curl.h>
 	<sstream>
 	<string>
+	<windows.h>
 
 1587991348 c:\users\lehar\desktop\лаба4\cs-lab03\main\curl\include\curl\curl.h
 	"curlver.h"
@@ -66,4 +73,6 @@
 	"curl.h"
 
 1587548874 c:\users\lehar\desktop\лаба4\cs-lab03\main\curl\include\curl\typecheck-gcc.h
+
+1590529227 04_2
 
