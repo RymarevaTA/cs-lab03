@@ -74,10 +74,19 @@ size_t write_data(void* items, size_t item_size, size_t item_count, void* ctx)
     (*buffer).write(reinterpret_cast<const char*>(items), data_size);
     return data_size;
 }
+size_t header_callback(void* items, size_t item_size, size_t item_count, void* ctx)
+{
+    size_t data_size = item_size * item_count;
+    stringstream* buffer_1 = reinterpret_cast<stringstream*>(ctx);
+    (*buffer_1).write(reinterpret_cast<const char*>(items), data_size);
+    return data_size;
+}
+
 
 Input download(const string& address)
 {
     stringstream buffer;
+    stringstream buffer_1;
 
     curl_global_init(CURL_GLOBAL_ALL);
     CURL* curl = curl_easy_init();
@@ -87,7 +96,14 @@ Input download(const string& address)
         curl_easy_setopt(curl, CURLOPT_URL, address.c_str());
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &buffer);
+        curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, header_callback);
+        curl_easy_setopt(curl, CURLOPT_HEADERDATA, &buffer_1);
         res = curl_easy_perform(curl);
+        string str;
+        while (buffer_1) {
+            buffer_1 >> str;
+            cerr << str << "  ";
+        }
         if (res)
         {
             cerr << curl_easy_strerror(res) << endl;
