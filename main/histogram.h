@@ -1,9 +1,21 @@
-#ifndef HISTOGRAM_H_INCLUDED
-#define HISTOGRAM_H_INCLUDED
+#pragma once
 
-#include<vector>
+#include <iostream>
+#include <vector>
+#include <sstream>
+#include <string>
+#include <curl/curl.h>
 using namespace std;
 
-void find_minmax (const vector<double>& numbers, double& min, double& max);
+struct Input
+{
+    vector<double> numbers;
+    size_t bin_count;
+    size_t interval;
+};
 
-#endif // HISTOGRAM_H_INCLUDED
+void find_minmax(vector<double> numbers, double& min, double& max);
+
+void show_histogram_text(vector<size_t> bins);
+
+string make_info_text();
